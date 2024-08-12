@@ -9,7 +9,45 @@
 </head>
 <body>
     <div class="container">
-        <div class="toolbar">
+		<div class="toolbar">
+			<div class="head">
+				<input type="text" placeholder="Filename" value="sem titulo" id="filename">
+				<select onchange="fileHandle(this.value); this.selectedIndex=0">
+					<option value="" selected="" hidden="" disabled="">Arquivo</option>
+					<option value="new">Novo Arquivo</option>
+					<option value="txt">Salvar como TXT</option>
+					<option value="pdf">Salvar como PDF</option>
+				</select>
+				<select onchange="formatDoc('formatBlock', this.value); this.selectedIndex=0;">
+					<option value="" selected="" hidden="" disabled="">Formato</option>
+					<option value="h1">Cabeçalho 1</option>
+					<option value="h2">Cabeçalho 2</option>
+					<option value="h3">Cabeçalho 3</option>
+					<option value="h4">Cabeçalho 4</option>
+					<option value="h5">Cabeçalho 5</option>
+					<option value="h6">Cabeçalho 6</option>
+					<option value="p">Paragrafo</option>
+				</select>
+				<select onchange="formatDoc('fontSize', this.value); this.selectedIndex=0;">
+					<option value="" selected="" hidden="" disabled="">Tamanho da Fonte</option>
+					<option value="1">Extra Pequeno</option>
+					<option value="2">Pequeno</option>
+					<option value="3">Regular</option>
+					<option value="4">Medio</option>
+					<option value="5">Grande</option>
+					<option value="6">Extra Grande</option>
+					<option value="7">Big</option>
+				</select>
+				<div class="color">
+					<span>Cor</span>
+					<input type="color" oninput="formatDoc('foreColor', this.value); this.value='#000000';">
+				</div>
+				<div class="color">
+					<span>Fundo</span>
+					<input type="color" oninput="formatDoc('hiliteColor', this.value); this.value='#000000';">
+				</div>
+			</div>
+
             <ul class="tool-list">
                 <li class="tool">
                     <button type="button" data-command='justifyLeft' class="tool--btn">
@@ -58,9 +96,9 @@
                 </li>
             </ul>
         </div>
-        <div id="output" contenteditable="true"></div>
+        <div id="content" contenteditable="true"></div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./script.js"></script>
 </body>
 </html>
