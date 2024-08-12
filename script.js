@@ -41,7 +41,7 @@ content.addEventListener('mouseenter', function () {
 	})
 })
 
-const filename = document.getElementById('filename');
+const filename = document.querySelector('#filename');
 
 function fileHandle(value) {
 	if(value === 'new') {
