@@ -101,6 +101,7 @@ body{
     background-color: #dddddd;
 }
 #content {
+    min-height: 400px;
     padding: 1rem;
     border: 1px solid green;
     border-radius: 5px;
